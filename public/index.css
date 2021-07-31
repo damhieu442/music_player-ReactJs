@@ -1,0 +1,9 @@
+:root {
+    --primary-color: #ec1f55;
+    --text-color: #333;
+}
+
+html {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
