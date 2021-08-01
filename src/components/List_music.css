@@ -26,14 +26,14 @@
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background-size: cover;
     margin: 0 8px;
+    overflow: hidden;
   }
 
   .thumb_img{
     width: 100%;
-    border-radius: 50%;
-    overflow: hidden;
+    height: 100%;
+    object-fit: cover;
   }
   
 .song .body{

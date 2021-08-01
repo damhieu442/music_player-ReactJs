@@ -1,11 +1,11 @@
 import React from 'react';
 import './Header.css';
 
-const Header = () => {
+const Header = ({name}) => {
     return (
         <header>
             <h4>Now playing:</h4>
-            <h2>String 57th &amp; 9th</h2>
+            <h2>{name}</h2>
         </header>
     );
 }

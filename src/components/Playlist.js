@@ -1,32 +1,23 @@
-import React, { Component } from 'react';
 import './Playlist.css';
-import List_music from './List_music';
-import List from './Song.json';
+import ListMusic from './List_music';
 
-class Playlist extends Component {
-    constructor(props){
-        super(props)
-    }
-    render() {
-        return (
-            <div className="playlist">
-                {
-                    List.map((value,key) => {
-                        return(
-                            <List_music 
-                                key = {key}
-                                name={value.name}
-                                singer={value.singer}
-                                anh={value.image}
-                            >
-                            </List_music>
-                        )
-                    })
-                }
-            </div>
-        );
-    }
-}
-
+const Playlist = ({ list, customSong }) => {
+	return (
+		<div className="playlist">
+			{list.map((value, index) => {
+				return (
+					<ListMusic
+						index={index}
+						key={index}
+						name={value.name}
+						singer={value.singer}
+						img={value.image}
+						customSong={customSong}
+					/>
+				);
+			})}
+		</div>
+	);
+};
 
 export default Playlist;
