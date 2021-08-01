@@ -4,7 +4,8 @@ import Cd from './components/Cd';
 import Control from './components/Control';
 import Header from './components/Header';
 import Playlist from './components/Playlist';
-import Progress from './components/Progress';
+// import Progress from './components/Progress';
+import './components/Progress';
 
 const App = () => {
 	const [songs] = useState([
@@ -29,13 +30,6 @@ const App = () => {
 			image:
 				'https://avatar-ex-swe.nixcdn.com/playlist/2016/10/21/0/b/9/8/1477048459663.jpg',
 		},
-		{
-			name: 'Nevada3',
-			singer: 'Vicetoe',
-			path: './Nevada.mp3',
-			image:
-				'https://avatar-ex-swe.nixcdn.com/playlist/2016/10/21/0/b/9/8/1477048459663.jpg',
-		},
 	]);
 	const [currentSong, setCurrentSong] = useState(0);
 	const [isPlaying, setIsPlaying] = useState(false);
@@ -43,13 +37,15 @@ const App = () => {
 	const nextSong = () => {
 		setCurrentSong((state) =>
 			// Check next song is available
-			state < songs.length - 1 ? (state += 1) : state
+			state < songs.length - 1 ? (state += 1) : (state = 0)
 		);
 		setIsPlaying(true);
 	};
 	const prevSong = () => {
 		// Check previous song is available
-		setCurrentSong((state) => (state > 0 ? (state -= 1) : state));
+		setCurrentSong((state) =>
+			state > 0 ? (state -= 1) : (state = songs.length - 1)
+		);
 		setIsPlaying(true);
 	};
 
@@ -82,8 +78,6 @@ const App = () => {
 					src={songs[currentSong].path}
 					isPlaying={isPlaying}
 				/>
-
-				<Progress />
 			</div>
 
 			<Playlist list={songs} customSong={customSong} />
